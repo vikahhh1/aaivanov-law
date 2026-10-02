@@ -20,23 +20,77 @@
   <style>
     body { font-family: 'Inter', sans-serif; }
     .font-mono-code { font-family: 'JetBrains Mono', monospace; }
+
+    /* Анимация каскадного всплытия блоков */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .anim-fade-up {
+      opacity: 0;
+      animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.25s; }
+    .delay-3 { animation-delay: 0.4s; }
+    .delay-4 { animation-delay: 0.55s; }
+    .delay-card-1 { animation-delay: 0.35s; }
+    .delay-card-2 { animation-delay: 0.5s; }
+    .delay-card-3 { animation-delay: 0.65s; }
+
+    /* Анимация мягкого появления и дыхания фона */
+    @keyframes watermarkEnter {
+      from {
+        opacity: 0;
+        transform: scale(0.92);
+      }
+      to {
+        opacity: 0.055;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes watermarkBreathe {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.055;
+      }
+      50% {
+        transform: scale(1.035);
+        opacity: 0.075;
+      }
+    }
+
+    .animated-watermark {
+      animation: 
+        watermarkEnter 2s cubic-bezier(0.16, 1, 0.3, 1) forwards,
+        watermarkBreathe 12s ease-in-out infinite 2s;
+    }
   </style>
 </head>
 <body class="bg-neutral-50 text-neutral-800 antialiased selection:bg-neutral-900 selection:text-white relative min-h-screen overflow-x-hidden">
 
-  <!-- ЕДИНЫЙ ФОНОВЫЙ ВОДЯНОЙ ЗНАК -->
+  <!-- ЕДИНЫЙ ФОНОВЫЙ ВОДЯНОЙ ЗНАК С ЭФФЕКТОМ ДЫХАНИЯ -->
   <div class="fixed inset-0 flex items-center justify-center pointer-events-none select-none -z-10 overflow-hidden" aria-hidden="true">
-    <img src="low.jpg" alt="" class="w-[120vw] max-w-[1400px] min-w-[500px] opacity-[0.05] grayscale object-contain pointer-events-none" onerror="this.src='low.png';">
+    <img src="low.jpg" alt="" class="animated-watermark w-[120vw] max-w-[1400px] min-w-[500px] grayscale object-contain pointer-events-none" onerror="this.src='low.png';">
   </div>
 
-  <!-- Навигация -->
+  <!-- Навигация: Одинаковый шрифт и размер для «Юрист» и «Иванов» -->
   <header class="sticky top-0 z-[9999] bg-white/95 backdrop-blur-md border-b border-neutral-200">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-      <a href="index.html" class="flex flex-col select-none leading-none group">
-        <span class="text-[11px] font-semibold uppercase tracking-[0.18em] text-neutral-400 group-hover:text-neutral-600 transition">
+      <a href="index.html" class="flex flex-col select-none leading-tight group">
+        <span class="text-base sm:text-lg font-bold tracking-tight text-neutral-900 group-hover:text-neutral-700 transition">
           Юрист
         </span>
-        <span class="text-lg sm:text-xl font-bold tracking-tight text-neutral-900 group-hover:text-neutral-700 transition mt-0.5">
+        <span class="text-base sm:text-lg font-bold tracking-tight text-neutral-900 group-hover:text-neutral-700 transition">
           Иванов
         </span>
       </a>
@@ -50,33 +104,33 @@
     </div>
   </header>
 
-  <!-- БЛОК 1: Первый экран + Мобильная сетка карточек -->
+  <!-- БЛОК 1: Первый экран с каскадным проявлением -->
   <section class="border-b border-neutral-200/80">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 pt-8 pb-14 sm:pt-14 sm:pb-20">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
         
         <!-- Левая колонка -->
         <div class="lg:col-span-7">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100/90 border border-neutral-200 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-neutral-600 mb-5">
+          <div class="anim-fade-up delay-1 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100/90 border border-neutral-200 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-neutral-600 mb-5">
             <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Прием обращений открыт
           </div>
-          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-950 leading-[1.2]">
+          <h1 class="anim-fade-up delay-2 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-950 leading-[1.2]">
             Юридическая помощь по уголовным делам и защита ваших прав
           </h1>
-          <p class="mt-4 sm:mt-5 text-sm sm:text-base lg:text-lg text-neutral-600 leading-relaxed font-normal max-w-xl">
+          <p class="anim-fade-up delay-3 mt-4 sm:mt-5 text-sm sm:text-base lg:text-lg text-neutral-600 leading-relaxed font-normal max-w-xl">
             Профессиональная защита интересов потерпевших, ведение административных и гражданских процессов, обжалование незаконных решений должностных лиц.
           </p>
-          <div class="mt-6 sm:mt-8">
+          <div class="anim-fade-up delay-4 mt-6 sm:mt-8">
             <a href="#contact" class="w-full sm:w-auto inline-flex justify-center items-center px-6 sm:px-7 py-3.5 text-sm sm:text-base font-medium text-white bg-neutral-900 rounded-xl hover:bg-neutral-800 transition shadow-sm active:scale-[0.98]">
               Записаться на консультацию
             </a>
           </div>
         </div>
 
-        <!-- Правая колонка: Карточки специализации -->
+        <!-- Правая колонка: Карточки специализации по очереди -->
         <div class="lg:col-span-5 space-y-3 pt-2 lg:pt-0">
           
-          <div class="p-4 rounded-xl bg-white/60 backdrop-blur-sm border border-neutral-300/80 hover:border-neutral-400 hover:bg-neutral-900/[0.05] transition-all duration-200 cursor-default shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+          <div class="anim-fade-up delay-card-1 p-4 rounded-xl bg-white/60 backdrop-blur-sm border border-neutral-300/80 hover:border-neutral-400 hover:bg-neutral-900/[0.05] transition-all duration-200 cursor-default shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
             <h2 class="text-sm sm:text-base font-semibold text-neutral-900 mb-1">
               Уголовный процесс и защита потерпевших
             </h2>
@@ -88,7 +142,7 @@
             </div>
           </div>
 
-          <div class="p-4 rounded-xl bg-white/60 backdrop-blur-sm border border-neutral-300/80 hover:border-neutral-400 hover:bg-neutral-900/[0.05] transition-all duration-200 cursor-default shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+          <div class="anim-fade-up delay-card-2 p-4 rounded-xl bg-white/60 backdrop-blur-sm border border-neutral-300/80 hover:border-neutral-400 hover:bg-neutral-900/[0.05] transition-all duration-200 cursor-default shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
             <h2 class="text-sm sm:text-base font-semibold text-neutral-900 mb-1">
               Административные дела и защита от нарушений
             </h2>
@@ -100,7 +154,7 @@
             </div>
           </div>
 
-          <div class="p-4 rounded-xl bg-white/60 backdrop-blur-sm border border-neutral-300/80 hover:border-neutral-400 hover:bg-neutral-900/[0.05] transition-all duration-200 cursor-default shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+          <div class="anim-fade-up delay-card-3 p-4 rounded-xl bg-white/60 backdrop-blur-sm border border-neutral-300/80 hover:border-neutral-400 hover:bg-neutral-900/[0.05] transition-all duration-200 cursor-default shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
             <h2 class="text-sm sm:text-base font-semibold text-neutral-900 mb-1">
               Гражданские споры, договоры и защита данных
             </h2>
@@ -154,8 +208,6 @@
   <!-- БЛОК: СТРУКТУРА ДОКУМЕНТОВ -->
   <section class="py-14 sm:py-20 max-w-6xl mx-auto px-4 sm:px-6 border-b border-neutral-200/80">
     <div class="p-5 sm:p-10 lg:p-12 rounded-2xl bg-white/70 backdrop-blur-sm border border-neutral-200/90 shadow-sm flex flex-col lg:flex-row gap-8 lg:gap-14 items-start lg:items-center justify-between">
-      
-      <!-- Текст слева -->
       <div class="max-w-lg space-y-3 sm:space-y-4">
         <span class="text-[11px] sm:text-xs font-mono-code uppercase tracking-wider text-neutral-500">[ СТАНДАРТ LEGAL DESIGN ]</span>
         <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-neutral-950 leading-[1.2]">
@@ -170,7 +222,6 @@
         </p>
       </div>
 
-      <!-- Карточки справа -->
       <div class="w-full lg:max-w-md flex flex-col gap-3.5">
         <div class="p-4 sm:p-5 rounded-xl bg-white/90 border border-neutral-200/80 shadow-[0_1px_3px_rgba(0,0,0,0.03)] space-y-1.5">
           <h3 class="text-sm sm:text-base font-bold text-neutral-950">Суть на первом листе</h3>
@@ -186,7 +237,6 @@
           </p>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -203,7 +253,6 @@
           Опишите суть вопроса. Все переданные сведения и материалы защищены профессиональной тайной.
         </p>
 
-        <!-- Прямые контакты -->
         <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 px-4 py-3.5 bg-neutral-900 rounded-xl border border-neutral-800 text-xs sm:text-sm">
           <a href="https://t.me/DvorininAlexa" target="_blank" class="text-white hover:text-neutral-300 transition flex items-center gap-1.5">
             <span class="text-neutral-400">Telegram:</span> <span class="font-semibold underline underline-offset-2">@DvorininAlexa</span>
