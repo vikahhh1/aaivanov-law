@@ -83,7 +83,7 @@
     <img src="low.jpg" alt="" class="animated-watermark w-[120vw] max-w-[1400px] min-w-[500px] grayscale object-contain pointer-events-none" onerror="this.src='low.png';">
   </div>
 
-  <!-- Навигация: Одинаковый шрифт и размер для «Юрист» и «Иванов» -->
+  <!-- Навигация -->
   <header class="sticky top-0 z-[9999] bg-white/95 backdrop-blur-md border-b border-neutral-200">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
       <a href="index.html" class="flex flex-col select-none leading-tight group">
@@ -127,7 +127,7 @@
           </div>
         </div>
 
-        <!-- Правая колонка: Карточки специализации по очереди -->
+        <!-- Правая колонка: Карточки специализации -->
         <div class="lg:col-span-5 space-y-3 pt-2 lg:pt-0">
           
           <div class="anim-fade-up delay-card-1 p-4 rounded-xl bg-white/60 backdrop-blur-sm border border-neutral-300/80 hover:border-neutral-400 hover:bg-neutral-900/[0.05] transition-all duration-200 cursor-default shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
@@ -218,7 +218,11 @@
           </span>, а не откладывают
         </h2>
         <p class="text-xs sm:text-sm lg:text-base text-neutral-600 leading-relaxed">
-          Судьи и следователи перегружены сотнями страниц шаблонного текста. Документы составляются с понятной визуальной иерархией: факты не тонут в цитатах, а работают на результат.
+          Судьи и следователи перегружены сотнями страниц шаблонного текста. 
+          <span class="relative inline-block px-1.5 py-0.5 mx-0.5 font-bold text-neutral-950">
+            <span class="relative z-10">Мои</span>
+            <span class="absolute inset-x-0 bottom-1 h-3 bg-neutral-200 -rotate-1 rounded-sm -z-0"></span>
+          </span> документы составляются с понятной визуальной иерархией: факты не тонут в цитатах, а работают на результат.
         </p>
       </div>
 
@@ -254,8 +258,8 @@
         </p>
 
         <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 px-4 py-3.5 bg-neutral-900 rounded-xl border border-neutral-800 text-xs sm:text-sm">
-          <a href="https://t.me/DvorininAlexa" target="_blank" class="text-white hover:text-neutral-300 transition flex items-center gap-1.5">
-            <span class="text-neutral-400">Telegram:</span> <span class="font-semibold underline underline-offset-2">@DvorininAlexa</span>
+          <a href="https://t.me/DvorininAlexa" target="_blank" class="font-semibold text-white hover:text-neutral-300 underline underline-offset-2 transition">
+            Telegram
           </a>
           <span class="text-neutral-700 hidden sm:inline">•</span>
           <a href="tel:+79852982564" class="font-semibold text-white hover:text-neutral-300 transition">
@@ -323,6 +327,9 @@
   </aside>
 
   <script>
+    // 1. Фиксация времени загрузки страницы
+    const pageLoadTimestamp = Date.now();
+
     const floatingCta = document.getElementById('floatingCta');
     const pageFooter = document.getElementById('pageFooter');
 
@@ -343,6 +350,17 @@
     document.getElementById('leadForm').addEventListener('submit', async function(e) {
       e.preventDefault();
 
+      const statusMessage = document.getElementById('statusMessage');
+      const timeSpent = Date.now() - pageLoadTimestamp;
+
+      // Защита Time-Trap: если форму отправили быстрее 3 секунд
+      if (timeSpent < 3000) {
+        statusMessage.className = 'text-center text-xs sm:text-sm font-medium pt-2 text-emerald-400 block';
+        statusMessage.innerText = 'Спасибо за обращение. Алексей Алексеевич свяжется с вами в ближайшее время';
+        document.getElementById('leadForm').reset();
+        return;
+      }
+
       const BOT_TOKEN = '8872143218:AAFBCO26rXZD-DEFtzzC2toNwO4J1SCNNzQ';
       const CHAT_ID = '238529181';
 
@@ -351,7 +369,6 @@
       const message = document.getElementById('clientMessage').value.trim() || 'Не указано';
 
       const submitBtn = document.getElementById('submitBtn');
-      const statusMessage = document.getElementById('statusMessage');
 
       submitBtn.disabled = true;
       submitBtn.classList.add('opacity-70');
