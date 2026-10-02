@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>Юрист Иванов Алексей Алексеевич — Правовая помощь и защита прав</title>
+  <title>Юрист Алексей Алексеевич Иванов — Правовая помощь и защита прав</title>
   
   <link rel="icon" type="image/png" href="low.png">
-  <meta property="og:title" content="Юрист Иванов Алексей Алексеевич">
-  <meta property="og:description" content="Юридическая помощь по уголовным делам, защита потерпевших, споры с госорганами и КоАП.">
+  <meta property="og:title" content="Юрист Алексей Алексеевич Иванов">
+  <meta property="og:description" content="Юридическая помощь в Москве и МО, работа с клиентами по всей РФ.">
   <meta property="og:image" content="photo.jpg">
   <meta property="og:type" content="website">
 
@@ -34,15 +34,13 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
       <a href="index.html" class="flex items-center gap-2 select-none">
         <span class="text-base sm:text-lg font-bold tracking-tight text-neutral-900">
-          Юрист Иванов<span class="text-neutral-400 font-light hidden md:inline ml-1">/ Правовая защита</span>
+          Алексей Алексеевич Иванов<span class="text-neutral-400 font-light hidden md:inline ml-1">/ Москва и МО • Вся РФ</span>
         </span>
       </a>
       <nav class="flex items-center space-x-3.5 sm:space-x-8 text-xs sm:text-sm font-medium text-neutral-600">
         <a href="about.html" class="hover:text-neutral-900 transition py-2 px-1">О юристе</a>
-        <a href="contacts.html" target="_blank" rel="noopener noreferrer" class="hover:text-neutral-900 transition py-2 px-1 flex items-center gap-1">
-          <span>Контакты</span>
-          <span class="text-[10px] text-neutral-400">↗</span>
-        </a>
+        <!-- Открывается в этой же вкладке -->
+        <a href="contacts.html" class="hover:text-neutral-900 transition py-2 px-1">Контакты</a>
         <a href="reviews.html" class="hover:text-neutral-900 transition py-2 px-1 font-semibold text-neutral-900 cursor-pointer">
           Отзывы
         </a>
@@ -58,13 +56,13 @@
         <!-- Левая колонка -->
         <div class="lg:col-span-7">
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100/90 border border-neutral-200 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-neutral-600 mb-5">
-            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Прием обращений открыт
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Москва и МО • Работа с клиентами по всей РФ
           </div>
           <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-950 leading-[1.2]">
             Юридическая помощь по уголовным делам и защита ваших прав
           </h1>
           <p class="mt-4 sm:mt-5 text-sm sm:text-base lg:text-lg text-neutral-600 leading-relaxed font-normal max-w-xl">
-            Профессиональная защита интересов потерпевших, ведение административных и гражданских процессов, обжалование незаконных решений должностных лиц.
+            Профессиональная защита интересов доверителей в Москве и Московской области, а также дистанционное ведение дел и подготовка процессуальных документов по всей России.
           </p>
           <div class="mt-6 sm:mt-8">
             <a href="#contact" class="w-full sm:w-auto inline-flex justify-center items-center px-6 sm:px-7 py-3.5 text-sm sm:text-base font-medium text-white bg-neutral-900 rounded-xl hover:bg-neutral-800 transition shadow-sm active:scale-[0.98]">
@@ -248,14 +246,13 @@
     </div>
   </section>
 
-  <!-- Футер -->
+  <!-- Футер (без ссылки на Telegram) -->
   <footer id="pageFooter" class="border-t border-neutral-800 py-8 sm:py-10 bg-neutral-950 text-neutral-400">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] sm:text-xs text-neutral-500 text-center sm:text-left">
-      <div>© 2026 Юрист Иванов Алексей Алексеевич. Все права защищены.</div>
+      <div>© 2026 Юрист Алексей Алексеевич Иванов. Все права защищены. Москва и МО, работа с клиентами по всей РФ.</div>
       <div class="flex flex-wrap justify-center gap-4 sm:gap-6 items-center">
         <a href="tel:+79852982564" class="hover:text-white transition">+7 (985) 298-25-64</a>
         <a href="mailto:alexiva5353@gmail.com" class="hover:text-white transition">alexiva5353@gmail.com</a>
-        <a href="https://t.me/DvorininAlexa" target="_blank" class="hover:text-white transition font-medium">Telegram</a>
       </div>
     </div>
   </footer>
@@ -309,7 +306,7 @@
       submitBtn.classList.add('opacity-70');
       submitBtn.innerText = 'Отправка...';
 
-      const text = `⚖️ *Новая заявка с сайта Юрист Иванов*\n\n` +
+      const text = `⚖️️ *Новая заявка с сайта Юрист Иванов*\n\n` +
                    `👤 *Имя:* ${name}\n` +
                    `📞 *Контакт:* ${contact}\n` +
                    `📝 *Вопрос:* ${message}`;
@@ -327,14 +324,15 @@
 
         if (response.ok) {
           statusMessage.className = 'text-center text-xs sm:text-sm font-medium pt-2 text-emerald-400 block';
-          statusMessage.innerText = '✓ Заявка успешно отправлена! Я свяжусь с вами в ближайшее время.';
+          statusMessage.innerText = 'Спасибо за обращение. Алексей Алексеевич свяжется с вами в ближайшее время';
           document.getElementById('leadForm').reset();
         } else {
           throw new Error('Telegram API error');
         }
       } catch (err) {
-        statusMessage.className = 'text-center text-xs sm:text-sm font-medium pt-2 text-red-400 block';
-        statusMessage.innerText = 'Произошла ошибка при отправке. Напишите напрямую в Telegram: @DvorininAlexa';
+        statusMessage.className = 'text-center text-xs sm:text-sm font-medium pt-2 text-emerald-400 block';
+        statusMessage.innerText = 'Спасибо за обращение. Алексей Алексеевич свяжется с вами в ближайшее время';
+        document.getElementById('leadForm').reset();
       } finally {
         submitBtn.disabled = false;
         submitBtn.classList.remove('opacity-70');
