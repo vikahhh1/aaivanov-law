@@ -7,7 +7,7 @@
   
   <link rel="icon" type="image/png" href="low.png">
   <meta property="og:title" content="Юрист Алексей Алексеевич Иванов">
-  <meta property="og:description" content="Юридическая помощь в Москве и МО, работа с клиентами по всей РФ.">
+  <meta property="og:description" content="Юридическая помощь по уголовным делам, защита потерпевших, споры с госорганами и КоАП.">
   <meta property="og:image" content="photo.jpg">
   <meta property="og:type" content="website">
 
@@ -29,17 +29,19 @@
     <img src="low.jpg" alt="" class="w-[120vw] max-w-[1400px] min-w-[500px] opacity-[0.05] grayscale object-contain pointer-events-none" onerror="this.src='low.png';">
   </div>
 
-  <!-- Навигация: О юристе, Контакты, Отзывы -->
+  <!-- Навигация -->
   <header class="sticky top-0 z-[9999] bg-white/95 backdrop-blur-md border-b border-neutral-200">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-      <a href="index.html" class="flex items-center gap-2 select-none">
-        <span class="text-base sm:text-lg font-bold tracking-tight text-neutral-900">
-          Алексей Алексеевич Иванов<span class="text-neutral-400 font-light hidden md:inline ml-1">/ Москва и МО • Вся РФ</span>
+      <a href="index.html" class="flex flex-col select-none leading-none group">
+        <span class="text-[11px] font-semibold uppercase tracking-[0.18em] text-neutral-400 group-hover:text-neutral-600 transition">
+          Юрист
+        </span>
+        <span class="text-lg sm:text-xl font-bold tracking-tight text-neutral-900 group-hover:text-neutral-700 transition mt-0.5">
+          Иванов
         </span>
       </a>
       <nav class="flex items-center space-x-3.5 sm:space-x-8 text-xs sm:text-sm font-medium text-neutral-600">
         <a href="about.html" class="hover:text-neutral-900 transition py-2 px-1">О юристе</a>
-        <!-- Открывается в этой же вкладке -->
         <a href="contacts.html" class="hover:text-neutral-900 transition py-2 px-1">Контакты</a>
         <a href="reviews.html" class="hover:text-neutral-900 transition py-2 px-1 font-semibold text-neutral-900 cursor-pointer">
           Отзывы
@@ -56,13 +58,13 @@
         <!-- Левая колонка -->
         <div class="lg:col-span-7">
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100/90 border border-neutral-200 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-neutral-600 mb-5">
-            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Москва и МО • Работа с клиентами по всей РФ
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Прием обращений открыт
           </div>
           <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-950 leading-[1.2]">
             Юридическая помощь по уголовным делам и защита ваших прав
           </h1>
           <p class="mt-4 sm:mt-5 text-sm sm:text-base lg:text-lg text-neutral-600 leading-relaxed font-normal max-w-xl">
-            Профессиональная защита интересов доверителей в Москве и Московской области, а также дистанционное ведение дел и подготовка процессуальных документов по всей России.
+            Профессиональная защита интересов потерпевших, ведение административных и гражданских процессов, обжалование незаконных решений должностных лиц.
           </p>
           <div class="mt-6 sm:mt-8">
             <a href="#contact" class="w-full sm:w-auto inline-flex justify-center items-center px-6 sm:px-7 py-3.5 text-sm sm:text-base font-medium text-white bg-neutral-900 rounded-xl hover:bg-neutral-800 transition shadow-sm active:scale-[0.98]">
@@ -246,7 +248,7 @@
     </div>
   </section>
 
-  <!-- Футер (без ссылки на Telegram) -->
+  <!-- Футер -->
   <footer id="pageFooter" class="border-t border-neutral-800 py-8 sm:py-10 bg-neutral-950 text-neutral-400">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] sm:text-xs text-neutral-500 text-center sm:text-left">
       <div>© 2026 Юрист Алексей Алексеевич Иванов. Все права защищены. Москва и МО, работа с клиентами по всей РФ.</div>
@@ -306,7 +308,7 @@
       submitBtn.classList.add('opacity-70');
       submitBtn.innerText = 'Отправка...';
 
-      const text = `⚖️️ *Новая заявка с сайта Юрист Иванов*\n\n` +
+      const text = `⚖️ *Новая заявка с сайта Юрист Иванов*\n\n` +
                    `👤 *Имя:* ${name}\n` +
                    `📞 *Контакт:* ${contact}\n` +
                    `📝 *Вопрос:* ${message}`;
